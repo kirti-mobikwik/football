@@ -9,6 +9,7 @@ import javax.persistence.Id;
 
 @Data
 @Entity
+
 public class League {
     @JsonProperty("country_id")
     private String countryId;
@@ -19,14 +20,14 @@ public class League {
     private String leagueId;
     @JsonProperty("league_name")
     private String leagueName;
+    public League(){
+
+    }
     public League(String countryId, String countryName, String leagueId, String leagueName){
         this.countryId = countryId;
         this.countryName = countryName;
         this.leagueId = leagueId;
         this.leagueName = leagueName;
-    }
-    public League(){
-
     }
 
     public String getCountryId() {
