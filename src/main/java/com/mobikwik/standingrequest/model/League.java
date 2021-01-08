@@ -2,19 +2,13 @@ package com.mobikwik.standingrequest.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 @Data
-@Entity
 public class League {
     @JsonProperty("country_id")
     private String countryId;
     @JsonProperty("country_name")
     private String countryName;
-    @Id
     @JsonProperty("league_id")
     private String leagueId;
     @JsonProperty("league_name")

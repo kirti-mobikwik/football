@@ -5,14 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+
 
 @Data
-@Entity
 @AllArgsConstructor
 public class Country {
-    @Id
     @JsonProperty("country_id")
     private String countryId;
     @JsonProperty("country_name")
