@@ -10,6 +10,7 @@ import javax.persistence.Id;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class TeamPosition {
     @Id
     @JsonProperty("team_name")
@@ -74,9 +75,6 @@ public class TeamPosition {
         this.leagueName = leagueName;
         this.teamId = teamId;
         this.overallPosition = overallPosition;
-    }
-    public TeamPosition(){
-
     }
 
     public String getTeamName() {

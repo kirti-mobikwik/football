@@ -20,14 +20,9 @@ public class RequestController {
     private RestTemplate restTemplate;
     @RequestMapping("/{teamName}/{leagueName}/{countryName}")
     public Item getItem(@PathVariable("teamName") String teamName, @PathVariable("leagueName") String leagueName, @PathVariable("countryName") String countryName){
-        TeamPosition teamPosition = restTemplate.getForObject("http://teamPosition/team/"+teamName+"/"+countryName+"/"+leagueName, TeamPosition.class);
-        Map<TeamPosition, Country> map = new HashMap<>();
         Country country = restTemplate.getForObject("http://country/country/"+countryName, Country.class);
-        System.out.println(country.getCountryId());
-        map.put(teamPosition, country);
-        Map<TeamPosition, League> map2 = new HashMap<>();
-        League league = restTemplate.getForObject("http://league/league/"+leagueName+"/"+countryName, League.class);
-        map2.put(teamPosition, league);
+        League league = restTemplate.getForObject("http://league/league/"+leagueName+"/"+country.getCountryId(), League.class);
+        TeamPosition teamPosition = restTemplate.getForObject("http://teamPosition/team/"+teamName+"/"+league.getLeagueId(), TeamPosition.class);
         Item item = new Item(countryName,country.getCountryId(),leagueName,league.getLeagueId(),teamName,teamPosition.getTeamId(),teamPosition.getOverallPosition());
         return item;
     }

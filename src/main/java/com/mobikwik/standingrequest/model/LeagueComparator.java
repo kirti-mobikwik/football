@@ -5,8 +5,10 @@ import lombok.Data;
 @Data
 public class LeagueComparator {
     private String leagueName;
-    public LeagueComparator(String leagueName){
+    private String countryId;
+    public LeagueComparator(String leagueName, String countryId){
         this.leagueName = leagueName;
+        this.countryId = countryId;
     }
 
     public String getLeagueName() {
